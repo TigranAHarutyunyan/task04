@@ -1,0 +1,16 @@
+resource_group_name             = "cmaz-j5tku7ra-mod4-rg"
+vnet_name                       = "cmaz-j5tku7ra-mod4-vnet"
+location                        = "West Europe"
+subnet_name                     = "frontend"
+vnet_address_space              = ["10.0.0.0/16"]
+subnet_prefix                   = ["10.0.1.0/24"]
+creator                         = "tigran_harutyunyan@epam.com"
+network_interface_name          = "cmaz-j5tku7ra-mod4-nic"
+public_ip_address_name          = "cmaz-j5tku7ra-mod4-pip"
+network_security_HTTP_rule_name = "AllowHHTP"
+network_security_SSH_rule_name  = "AllowSSH"
+domain_name_label               = "cmaz-j5tku7ra-mod4-nginx"
+vm_name                         = "cmaz-j5tku7ra-mod4-vm"
+vm_os_version                   = "ubuntu-24_04-lts"
+sku_of_vm                       = "Standard_B2s_v2"
+network_security_group_name     = "cmaz-j5tku7ra-mod4-nsg"
