@@ -58,10 +58,18 @@ variable "sku_of_vm" {
   description = "SKU of VM"
   type        = string
 }
+variable "vm_username" {
+  description  = "Usernamm of VM "
+  type = string
+}
 variable "vm_password" {
   type        = string
   description = "Password for the virtual machine"
   sensitive   = true
+}
+variable "ip_configuration_name" {
+  description = "type of ip"
+  type = string
 }
 variable "creator" {
   description = "Identifier of email used to tag created resources"

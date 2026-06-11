@@ -45,7 +45,7 @@ resource "azurerm_network_interface" "nic" {
   location            = azurerm_resource_group.rg.location
 
   ip_configuration {
-    name                          = "internal"
+    name                          = var.ip_configuration_name
     subnet_id                     = azurerm_subnet.frontend.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.pip.id
@@ -107,7 +107,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
   size                            = "Standard_B2s_v2"
-  admin_username                  = "azureuser"
+  admin_username                  = var.vm_username
   admin_password                  = var.vm_password
   disable_password_authentication = false
   network_interface_ids = [
@@ -129,7 +129,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   connection {
     type     = "ssh"
     host     = azurerm_public_ip.pip.ip_address
-    user     = "azureuser"
+    user     = var.vm_username
     password = var.vm_password
   }
   provisioner "remote-exec" {
